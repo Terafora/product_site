@@ -1,0 +1,76 @@
+/* background */
+:root {
+  --bg-tile-width: 6.975em;   /* width of your tile image */
+  --bg-tile-height: 12.3em; /* height of your tile image */
+  --bg-scroll-speed: 12s;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background-image: url("./content/background.svg");
+  background-repeat: repeat;
+  background-size: var(--bg-tile-width) var(--bg-tile-height);
+  animation: scroll-bg-left-to-right var(--bg-scroll-speed) linear infinite;
+}
+
+@keyframes scroll-bg-left-to-right {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: var(--bg-tile-width) 0;
+  }
+}
+
+/* bars */
+
+:root {
+  --trans-blue: rgba(0, 195, 255, 0.5);
+  --trans-pink: rgba(255, 0, 251, 0.5);
+
+  --corner-bar-width: 30em;
+  --corner-bar-height: 7.75em;
+}
+
+/* Keep your existing body background styles */
+body {
+  background-image: url("./content/background.png");
+  background-repeat: repeat;
+  background-size: var(--bg-tile-width) var(--bg-tile-height);
+  animation: scroll-bg-left-to-right var(--bg-scroll-speed) linear infinite;
+
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Shared styling for both diagonal bars */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: var(--corner-bar-width);
+  height: var(--corner-bar-height);
+  transform: rotate(-45deg);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Blue bar: top-left */
+body::before {
+  top: 48px;
+  left: -130px;
+  background: var(--trans-blue);
+}
+
+/* Pink bar: bottom-right */
+body::after {
+  right: -130px;
+  bottom: 48px;
+  background: var(--trans-pink);
+}
