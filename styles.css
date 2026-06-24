@@ -56,21 +56,21 @@ body::after {
   position: fixed;
   width: var(--corner-bar-width);
   height: var(--corner-bar-height);
-  transform: rotate(-45deg);
+  transform: rotate(-60deg);
   pointer-events: none;
   z-index: 0;
 }
 
 /* Blue bar: top-left */
 body::before {
-  top: 48px;
-  left: -130px;
+  top: 96px;
+  left: -200px;
   background: var(--trans-blue);
 }
 
 /* Pink bar: bottom-right */
 body::after {
-  right: -130px;
-  bottom: 48px;
+  right: -200px;
+  bottom: 96px;
   background: var(--trans-pink);
 }
