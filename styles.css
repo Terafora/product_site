@@ -74,3 +74,13 @@ body::after {
   bottom: 96px;
   background: var(--trans-pink);
 }
+
+/* Top navigation bar */
+
+body {
+  padding-top: 56px;
+}
+
+.portfolio-nav {
+  z-index: 10;
+}
