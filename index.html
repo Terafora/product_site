@@ -19,9 +19,9 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top portfolio-nav">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Charlotte Stone</a>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top portfolio-nav">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#home">Charlotte Stone</a>
 
       <button
         class="navbar-toggler"
@@ -38,7 +38,7 @@
       <div class="collapse navbar-collapse" id="mainNavbar">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#home">Home</a>
+            <a class="nav-link active" href="#home">Home</a>
           </li>
 
           <li class="nav-item">
@@ -46,7 +46,11 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#product-work">Product Work</a>
+            <a class="nav-link" href="#skills">Skills</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#projects">Projects</a>
           </li>
 
           <li class="nav-item">
@@ -61,9 +65,332 @@
     </div>
   </nav>
 
-  <main class="site-content" id="home">
-    <!-- Your page content will go here -->
+    <section id="home" class="hero-section d-flex align-items-center">
+    <div class="container">
+        <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+            <div class="hero-card">
+            <p class="eyebrow mb-3">
+                Product Supervisor · Technical Product · UX-minded Delivery
+            </p>
+
+            <h1 class="display-3 fw-bold mb-4">
+                I turn messy product problems into clear, human-centred software.
+            </h1>
+
+            <p class="lead mb-4">
+                I’m Charlotte Stone, a product supervisor with a full-stack development background.
+                I work across discovery, delivery, stakeholder communication, UX thinking, QA support,
+                and product strategy — especially in complex SaaS environments where clarity matters.
+            </p>
+
+            <div class="d-flex flex-wrap gap-3">
+                <a href="#case-studies" class="btn btn-primary btn-lg">
+                View case studies
+                </a>
+
+                <a href="#contact" class="btn btn-outline-dark btn-lg">
+                Get in touch
+                </a>
+            </div>
+            </div>
+        </div>
+
+        <div class="col-lg-5">
+            <aside class="hero-proof-card">
+            <p class="eyebrow mb-3">What I bring</p>
+
+            <div class="proof-item">
+                <strong>Product supervision</strong>
+                <span>Turning ambiguity into usable requirements and delivery plans.</span>
+            </div>
+
+            <div class="proof-item">
+                <strong>Technical background</strong>
+                <span>Bridging product, development, QA, support, and leadership.</span>
+            </div>
+
+            <div class="proof-item">
+                <strong>Human-centred thinking</strong>
+                <span>Designing workflows that feel clearer, kinder, and easier to use.</span>
+            </div>
+            </aside>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <section class="section-block" id="case-studies">
+      <div class="container">
+        <div class="section-card">
+          <p class="eyebrow">Selected Work</p>
+          <h2 class="section-title">Case Studies</h2>
+          <p class="section-intro">
+            These are portfolio-safe summaries of the kind of product work I do. Each one can be expanded
+            into a full case study with problem, process, trade-offs, screenshots, outcomes, and reflections.
+          </p>
+
+          <div class="row g-4 mt-2">
+            <div class="col-md-6 col-lg-4">
+              <article class="portfolio-card h-100">
+                <h3>Companion App Experience</h3>
+                <p>
+                  Improving a youth-focused companion app by thinking through emotional safety, clearer journeys,
+                  more useful prompts, and features that support young people rather than simply collecting data.
+                </p>
+
+                <ul>
+                  <li>Product discovery</li>
+                  <li>UX/UI improvements</li>
+                  <li>Stakeholder alignment</li>
+                </ul>
+
+                <a href="#" class="card-link">Full case study coming soon</a>
+              </article>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <article class="portfolio-card h-100">
+                <h3>Journal Export & Data Continuity</h3>
+                <p>
+                  Designing a journal export flow so important personal records can be preserved when someone
+                  leaves a service. The focus: dignity, access, memory, and practical handover.
+                </p>
+
+                <ul>
+                  <li>Requirements writing</li>
+                  <li>PDF/export flows</li>
+                  <li>User-centred edge cases</li>
+                </ul>
+
+                <a href="#" class="card-link">Full case study coming soon</a>
+              </article>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <article class="portfolio-card h-100">
+                <h3>Operational Workflow Redesign</h3>
+                <p>
+                  Breaking down a complex finance/workflow area into clearer user journeys, implementation notes,
+                  and product requirements that developers, QA, and stakeholders can actually work from.
+                </p>
+
+                <ul>
+                  <li>Process mapping</li>
+                  <li>Backlog refinement</li>
+                  <li>Cross-team delivery</li>
+                </ul>
+
+                <a href="#" class="card-link">Full case study coming soon</a>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block" id="skills">
+      <div class="container">
+        <div class="section-card">
+          <p class="eyebrow">How I Work</p>
+          <h2 class="section-title">Product Skills</h2>
+
+          <div class="row g-4 mt-2">
+            <div class="col-md-6">
+              <div class="skill-panel">
+                <h3>Product & Delivery</h3>
+                <p>
+                  I’m comfortable translating ambiguity into practical next steps: shaping requirements,
+                  prioritising backlogs, supporting sprint rituals, running demos, and helping teams understand
+                  not just what to build, but why it matters.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="skill-panel">
+                <h3>Technical Communication</h3>
+                <p>
+                  With a full-stack development background, I can bridge conversations between users,
+                  stakeholders, developers, QA, and leadership — keeping detail without losing the human problem.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="skill-panel">
+                <h3>UX & Human-Centred Thinking</h3>
+                <p>
+                  I’m drawn to products that make people feel less lost. My approach focuses on clarity,
+                  emotional context, accessibility, and reducing friction in moments where users need confidence.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="skill-panel">
+                <h3>QA, Detail & Systems Thinking</h3>
+                <p>
+                  I enjoy spotting patterns, finding edge cases, testing assumptions, and turning scattered feedback
+                  into structured improvements. Good product work is part map-making, part detective work.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tag-cloud mt-4">
+            <span>Product discovery</span>
+            <span>Backlog management</span>
+            <span>Requirements</span>
+            <span>Figma</span>
+            <span>Agile/Scrum</span>
+            <span>Stakeholder demos</span>
+            <span>UX writing</span>
+            <span>QA support</span>
+            <span>React</span>
+            <span>HTML/CSS/JS</span>
+            <span>SQL learning</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block" id="projects">
+      <div class="container">
+        <div class="section-card">
+          <p class="eyebrow">Beyond Work</p>
+          <h2 class="section-title">Personal Projects</h2>
+          <p class="section-intro">
+            I like building small, expressive systems — partly as creative practice, partly as product research.
+            These projects help me explore interaction design, accessibility, storytelling, and emotional UX.
+          </p>
+
+          <div class="row g-4 mt-2">
+            <div class="col-md-6">
+              <article class="portfolio-card h-100">
+                <h3>Desktop Window / Diorama Interface</h3>
+                <p>
+                  An experimental desktop interface concept exploring parallax, layered windows, spatial depth,
+                  and calm ambient scenes. It’s part productivity tool, part digital diorama.
+                </p>
+              </article>
+            </div>
+
+            <div class="col-md-6">
+              <article class="portfolio-card h-100">
+                <h3>Callsign: Echo</h3>
+                <p>
+                  A personal sci-fi storytelling project about identity, communication, memory, and change.
+                  It explores how interface, colour, language, and structure can carry emotional meaning.
+                </p>
+              </article>
+            </div>
+
+            <div class="col-md-6">
+              <article class="portfolio-card h-100">
+                <h3>Between Names</h3>
+                <p>
+                  A small app concept focused on giving people a private, low-pressure space to explore names,
+                  pronouns, presentation, and identity language safely.
+                </p>
+              </article>
+            </div>
+
+            <div class="col-md-6">
+              <article class="portfolio-card h-100">
+                <h3>Creative Learning</h3>
+                <p>
+                  I’m actively learning art, game development, guitar, and languages. I find that creative practice
+                  makes me a better product thinker because it trains taste, empathy, and iteration.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block" id="about">
+      <div class="container">
+        <div class="section-card">
+          <div class="row g-4 align-items-center">
+            <div class="col-lg-7">
+              <p class="eyebrow">About Me</p>
+              <h2 class="section-title">A product generalist with technical roots and a very human compass.</h2>
+
+              <p>
+                My background spans product supervision, full-stack web development, technical support,
+                software engineering, teaching, and volunteer translation. That mix means I’m comfortable with both
+                the people side and the technical side of product work.
+              </p>
+
+              <p>
+                I’m especially interested in products that help people understand what’s happening, what they can do
+                next, and why it matters. I care about accessibility, emotional clarity, thoughtful systems, and
+                building tools that make complicated situations feel more manageable.
+              </p>
+            </div>
+
+            <div class="col-lg-5">
+              <div class="about-highlight">
+                <h3>What I bring</h3>
+
+                <ul>
+                  <li>Product supervision in SaaS environments</li>
+                  <li>Full-stack development background</li>
+                  <li>Human-centred UX thinking</li>
+                  <li>Clear requirements and product documentation</li>
+                  <li>QA, edge-case, and workflow awareness</li>
+                  <li>Cross-cultural and multilingual perspective</li>
+                  <li>Community and education experience</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block" id="contact">
+      <div class="container">
+        <div class="section-card text-center">
+          <p class="eyebrow">Contact</p>
+          <h2 class="section-title">Want to talk product, UX, or thoughtful software?</h2>
+
+          <p class="section-intro mx-auto">
+            I’m open to conversations about product roles, technical product work, UX-focused delivery,
+            portfolio projects, and meaningful software that helps people.
+          </p>
+
+          <div class="d-flex justify-content-center flex-wrap gap-3 mt-4">
+            <a href="mailto:your-email@example.com" class="btn btn-primary btn-lg">
+              Email me
+            </a>
+
+            <a href="#" class="btn btn-outline-dark btn-lg">
+              LinkedIn
+            </a>
+
+            <a href="#" class="btn btn-outline-dark btn-lg">
+              GitHub
+            </a>
+          </div>
+
+          <p class="small text-muted mt-4">
+            Replace these links with your actual email, LinkedIn, GitHub, or CV download.
+          </p>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="mb-0">
+        © 2026 Charlotte Stone. Built with HTML, CSS, JavaScript, Bootstrap, and a suspicious amount of triangles.
+      </p>
+    </div>
+  </footer>
 
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

@@ -1,9 +1,38 @@
-/* background */
+/* =========================
+   Design tokens
+========================= */
+
 :root {
-  --bg-tile-width: 6.975em;   /* width of your tile image */
-  --bg-tile-height: 12.3em; /* height of your tile image */
+  /* Background tile */
+  --bg-tile-width: 6.975em;
+  --bg-tile-height: 12.3em;
   --bg-scroll-speed: 12s;
+
+  /* Accent colours */
+  --accent-yellow: rgba(255, 247, 0, 0.772);
+  --accent-purple: rgba(149, 0, 255, 0.5);
+
+  /* Dark theme */
+  --page-bg: #050507;
+  --surface: rgba(8, 8, 12, 0.88);
+  --surface-soft: rgba(18, 18, 26, 0.78);
+  --surface-strong: rgba(0, 0, 0, 0.92);
+
+  --text-main: #f7f7fb;
+  --text-muted: #c5c5d1;
+  --text-soft: #9f9fad;
+
+  --border-soft: rgba(255, 255, 255, 0.14);
+  --border-accent: rgba(255, 247, 0, 0.32);
+
+  --purple-solid: #9500ff;
+  --purple-hover: #7a00d1;
+  --yellow-solid: #fff700;
 }
+
+/* =========================
+   Base page
+========================= */
 
 html,
 body {
@@ -11,76 +40,407 @@ body {
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background-image: url("./content/background.svg");
-  background-repeat: repeat;
-  background-size: var(--bg-tile-width) var(--bg-tile-height);
+  min-height: 100vh;
+  padding-top: 56px;
+  color: var(--text-main);
+  background-color: var(--page-bg);
+
+  /*
+    Dark overlay + tiled background.
+    If your file is background.png instead, change background.svg to background.png.
+  */
+  background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0.82),
+      rgba(0, 0, 0, 0.82)
+    ),
+    url("./content/background.svg");
+
+  background-repeat:
+    no-repeat,
+    repeat;
+
+  background-size:
+    cover,
+    var(--bg-tile-width) var(--bg-tile-height);
+
+  /*
+    Keeps the background locked to the viewport when the user scrolls.
+    The animation below still moves it left-to-right.
+  */
+  background-attachment:
+    fixed,
+    fixed;
+
   animation: scroll-bg-left-to-right var(--bg-scroll-speed) linear infinite;
 }
 
 @keyframes scroll-bg-left-to-right {
   from {
-    background-position: 0 0;
+    background-position:
+      0 0,
+      0 0;
   }
 
   to {
-    background-position: var(--bg-tile-width) 0;
+    background-position:
+      0 0,
+      var(--bg-tile-width) 0;
   }
 }
 
-/* bars */
-
-:root {
-  --trans-blue: rgba(0, 195, 255, 0.5);
-  --trans-pink: rgba(255, 0, 251, 0.5);
-
-  --corner-bar-width: 30em;
-  --corner-bar-height: 7.75em;
+@media (prefers-reduced-motion: reduce) {
+  body {
+    animation: none;
+  }
 }
 
-/* Keep your existing body background styles */
-body {
-  background-image: url("./content/background.png");
-  background-repeat: repeat;
-  background-size: var(--bg-tile-width) var(--bg-tile-height);
-  animation: scroll-bg-left-to-right var(--bg-scroll-speed) linear infinite;
+/* =========================
+   Global background lights
+========================= */
 
-  min-height: 100vh;
-  margin: 0;
-}
-
-/* Shared styling for both diagonal bars */
 body::before,
 body::after {
   content: "";
   position: fixed;
-  width: var(--corner-bar-width);
-  height: var(--corner-bar-height);
-  transform: rotate(-60deg);
   pointer-events: none;
   z-index: 0;
+  border-radius: 999px;
+  filter: blur(14px);
 }
 
-/* Blue bar: top-left */
+/* Purple glow: upper-left */
 body::before {
-  top: 96px;
-  left: -200px;
-  background: var(--trans-blue);
+  width: 42rem;
+  height: 42rem;
+  top: -16rem;
+  left: -18rem;
+  background: radial-gradient(
+    circle,
+    rgba(149, 0, 255, 0.34),
+    rgba(149, 0, 255, 0.14) 34%,
+    transparent 68%
+  );
 }
 
-/* Pink bar: bottom-right */
+/* Yellow glow: lower-right */
 body::after {
-  right: -200px;
-  bottom: 96px;
-  background: var(--trans-pink);
+  width: 38rem;
+  height: 38rem;
+  right: -17rem;
+  bottom: -15rem;
+  background: radial-gradient(
+    circle,
+    rgba(255, 247, 0, 0.2),
+    rgba(255, 247, 0, 0.08) 36%,
+    transparent 70%
+  );
 }
 
-/* Top navigation bar */
-
-body {
-  padding-top: 56px;
-}
+/* =========================
+   Navigation
+========================= */
 
 .portfolio-nav {
-  z-index: 10;
+  background: rgba(5, 5, 9, 0.88) !important;
+  border-bottom: 1px solid var(--border-soft);
+  backdrop-filter: blur(10px);
+  z-index: 20;
+}
+
+.navbar-brand,
+.navbar-dark .navbar-nav .nav-link {
+  color: var(--text-main);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  opacity: 0.78;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+  color: var(--yellow-solid);
+  opacity: 1;
+}
+
+/* =========================
+   General layout
+========================= */
+
+.site-content {
+  position: relative;
+  z-index: 1;
+}
+
+.section-block {
+  padding: 4rem 0;
+}
+
+.section-card {
+  background: var(--surface);
+  color: var(--text-main);
+  border: 1px solid var(--border-soft);
+  border-radius: 28px;
+  padding: 2rem;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--yellow-solid);
+}
+
+.section-title {
+  color: var(--text-main);
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.section-intro {
+  max-width: 760px;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
+p,
+li {
+  color: var(--text-muted);
+}
+
+/* =========================
+   Hero section
+========================= */
+
+.hero-section {
+  min-height: calc(100vh - 56px);
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/*
+  The old hero-only overlay has been removed.
+  The darker atmosphere now comes from the whole-page background.
+*/
+.hero-section::before {
+  content: none;
+}
+
+.hero-card,
+.hero-proof-card {
+  background: var(--surface);
+  color: var(--text-main);
+  border: 1px solid var(--border-soft);
+  border-radius: 32px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(12px);
+}
+
+.hero-card {
+  padding: clamp(2rem, 5vw, 4rem);
+  border-left: 4px solid var(--yellow-solid);
+}
+
+.hero-proof-card {
+  padding: 2rem;
+  transform: translateY(2rem);
+  border-right: 4px solid var(--purple-solid);
+}
+
+.hero-card h1 {
+  max-width: 820px;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+  color: var(--text-main);
+}
+
+.hero-card .lead {
+  max-width: 720px;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+
+.proof-item {
+  padding: 1rem 0;
+  border-top: 1px solid var(--border-soft);
+}
+
+.proof-item:first-of-type {
+  border-top: 0;
+}
+
+.proof-item strong {
+  display: block;
+  font-size: 1.05rem;
+  color: var(--text-main);
+  margin-bottom: 0.35rem;
+}
+
+.proof-item span {
+  display: block;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+/* =========================
+   Buttons
+========================= */
+
+.btn-primary {
+  background: var(--purple-solid);
+  border-color: var(--purple-solid);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--purple-hover);
+  border-color: var(--purple-hover);
+  color: white;
+}
+
+.btn-outline-dark {
+  color: var(--text-main);
+  border-color: var(--yellow-solid);
+}
+
+.btn-outline-dark:hover {
+  background: var(--yellow-solid);
+  border-color: var(--yellow-solid);
+  color: #050507;
+}
+
+/* =========================
+   Cards and panels
+========================= */
+
+.portfolio-card,
+.skill-panel,
+.about-highlight {
+  background: var(--surface-soft);
+  color: var(--text-main);
+  border: 1px solid var(--border-soft);
+  border-radius: 22px;
+  padding: 1.5rem;
+}
+
+.portfolio-card h3,
+.skill-panel h3,
+.about-highlight h3 {
+  color: var(--text-main);
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.portfolio-card ul,
+.about-highlight ul {
+  padding-left: 1.2rem;
+}
+
+.card-link {
+  color: var(--yellow-solid);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.card-link:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+/* =========================
+   Tags
+========================= */
+
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.tag-cloud span {
+  display: inline-block;
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(149, 0, 255, 0.22);
+  border: 1px solid rgba(255, 247, 0, 0.22);
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+/* =========================
+   Footer
+========================= */
+
+.site-footer {
+  position: relative;
+  z-index: 1;
+  padding: 2rem 0;
+  text-align: center;
+  background: var(--surface-strong);
+  border-top: 1px solid var(--border-soft);
+  color: var(--text-main);
+}
+
+.site-footer p {
+  color: var(--text-muted);
+}
+
+/* =========================
+   Responsive tweaks
+========================= */
+
+@media (max-width: 991px) {
+  .hero-section {
+    padding: 3rem 0;
+  }
+
+  .hero-proof-card {
+    transform: none;
+  }
+
+  .hero-card h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 575px) {
+  body::before {
+    width: 28rem;
+    height: 28rem;
+    top: 2rem;
+    left: -14rem;
+  }
+
+  body::after {
+    width: 26rem;
+    height: 26rem;
+    right: -14rem;
+    bottom: -8rem;
+  }
+
+  .hero-card,
+  .hero-proof-card {
+    border-radius: 24px;
+  }
+
+  .hero-card h1 {
+    font-size: 2.45rem;
+  }
+
+  .section-card {
+    padding: 1.5rem;
+    border-radius: 24px;
+  }
 }
